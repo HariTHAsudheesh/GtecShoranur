@@ -1,0 +1,87 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- About Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #0a1930, #112a45); color: #fff;">
+  <div class="container mt-5">
+    <h2 class="section-title text-center text-warning">
+      <i class="bi bi-info-circle-fill me-2 text-warning"></i>  <span class="text-light">About G TEC Shoranur</span>
+    </h2>
+    <div class="underline mx-auto mb-5" style="background: linear-gradient(to right, #ffc107, #0056b3); height: 4px; border-radius: 10px; width: 80px;"></div>
+
+    <div class="row align-items-center mt-5">
+      <!-- Left Image -->
+      <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+        <img src="{% static 'main/images/about1.jpg' %}" alt="About Us" class="img-fluid rounded-4 shadow-lg about-img" style="transition: transform 0.4s ease;">
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6" data-aos="fade-left">
+        <h4 class="fw-bold text-warning mb-2">Who We Are</h4>
+        <p class="text-light" style="font-size: 1.2rem;">G TEC Shoranur is a leading IT and professional training institute, dedicated to providing students with the skills and certifications needed for today’s competitive job market.</p>
+
+        <h5 class="fw-bold text-primary mt-4">Our Mission</h5>
+        <p class="text-light" style="font-size: 1.2rem;">To deliver high-quality, industry-relevant training programs that empower students and professionals to succeed in their careers.</p>
+
+        <h5 class="fw-bold text-danger mt-4">Our Vision</h5>
+        <p class="text-light" style="font-size: 1.2rem;">To be a center of excellence in education, producing competent professionals with strong technical and soft skills for the global market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Students Choose Us -->
+<section class="py-5" style="background-color:#0d223d;">
+  <div class="container">
+    <!-- Section Title -->
+    <h2 class="section-title text-center text-warning" style="font-size: 2.2rem;">
+      <i class="bi bi-star-fill me-2 text-warning"></i> Why <span class="text-light">Students Choose Us</span>
+    </h2>
+    <div class="underline mx-auto mb-5" style="background: linear-gradient(to right, #ffc107, #0056b3); height: 4px; border-radius: 10px; width: 80px;"></div>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="feature-card shadow-sm p-4 rounded-4 h-100 text-center" 
+             style="background: linear-gradient(145deg, #0a1930, #112a45); 
+                    color: #fff; 
+                    transition: 0.3s;">
+          <i class="fas fa-chalkboard-teacher mb-3" style="font-size: 3.5rem; color: #28a745;"></i>
+          <h5 class="fw-bold text-warning" style="font-size: 1.5rem;">Expert Trainers</h5>
+          <p class="text-light" style="font-size: 1.1rem; line-height: 1.6;">
+            Certified instructors with real industry experience.
+          </p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="feature-card shadow-sm p-4 rounded-4 h-100 text-center" 
+             style="background: linear-gradient(145deg, #0a1930, #112a45); 
+                    color: #fff; 
+                    transition: 0.3s;">
+          <i class="fas fa-certificate mb-3" style="font-size: 3.5rem; color: #ffc107;"></i>
+          <h5 class="fw-bold text-warning" style="font-size: 1.5rem;">Certified Courses</h5>
+          <p class="text-light" style="font-size: 1.1rem; line-height: 1.6;">
+            Recognized by government & international institutions.
+          </p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="feature-card shadow-sm p-4 rounded-4 h-100 text-center" 
+             style="background: linear-gradient(145deg, #0a1930, #112a45); 
+                    color: #fff; 
+                    transition: 0.3s;">
+          <i class="fas fa-briefcase mb-3" style="font-size: 3.5rem; color: #0d6efd;"></i>
+          <h5 class="fw-bold text-warning" style="font-size: 1.5rem;">Job Support</h5>
+          <p class="text-light" style="font-size: 1.1rem; line-height: 1.6;">
+            Placement assistance, resume building, and interview prep.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
