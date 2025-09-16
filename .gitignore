@@ -6,8 +6,9 @@ __pycache__/
 # Ignore database
 db.sqlite3
 
-# Ignore media uploads
-/media/
+/media/*
+!/media/.gitkeep
+
 
 # Ignore IDE files
 .vscode/
