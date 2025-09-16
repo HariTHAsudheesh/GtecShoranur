@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-^x$mr=f+i#gse)7*x1yzuzrrr&*8+8#dmj0iwgoyi0dz!1tnm#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+env_hosts = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
 
 
 ALLOWED_HOSTS = ["gtecshoranur.onrender.com", "gtecshoranur.com", "www.gtecshoranur.com","localhost",
