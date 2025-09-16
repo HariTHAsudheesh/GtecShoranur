@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-black mb-5">📘 Our Courses</h2>
+    <div class="row g-4">
+      {% for course in courses %}
+        <div class="col-md-4 col-sm-6">
+          <div class="card h-100 shadow-sm">
+            {% if course.image %}
+              <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
+            {% endif %}
+            <div class="card-body">
+              <!-- 🔽 This is where the link goes -->
+              <h5 class="card-title">
+                <a href="{% url 'course_detail' course.pk %}" class="text-decoration-none text-dark">
+                  {{ course.title }}
+                </a>
+              </h5>
+              <p class="card-text">{{ course.description|truncatewords:20 }}</p>
+              <a href="{% url 'course_detail' course.pk %}" class="btn btn-outline-primary btn-sm mt-2">View Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

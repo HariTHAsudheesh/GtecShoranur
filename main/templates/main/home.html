@@ -1,0 +1,665 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  body {
+  font-size: 25px;  /* Default text size (Bootstrap default is 16px) */
+  line-height: 1.6;
+}
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+p, a, li { font-size: 1.1rem; }
+
+.custom-shape-divider-bottom-1689 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -1px;
+}
+
+.custom-shape-divider-bottom-1689 svg {
+  position: relative;
+  display: block;
+  width: calc(135% + 1.3px);
+  height: 80px;
+}
+
+.benefit-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+.benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+h2 span {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+  .animate-caption {
+    animation: zoomIn 1.5s ease-in-out;
+  }
+
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+#team {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.team-photo img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+}
+
+
+  .carousel-caption h1, 
+  .carousel-caption p, 
+  .carousel-caption a {
+    animation: fadeUp 1.5s ease-in-out;
+  }
+  /* Affiliation Card */
+.affiliation-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.affiliation-card img {
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(40%);
+  transition: all 0.3s ease;
+}
+
+.affiliation-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.affiliation-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+#courses{
+  background-color: #0a1930;
+}
+
+</style>
+
+<!-- Contact Icons on Right Side -->
+<div class="contact-icons">
+  <!-- Call -->
+  <a href="tel:+919846344178" class="call" title="Call Now">
+    <i class="fas fa-phone"></i>
+  </a>
+  <!-- WhatsApp -->
+  <a href="https://api.whatsapp.com/send?phone=918089637659" class="whatsapp" title="Chat on WhatsApp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <!-- Email -->
+  <a href="mailto:info@example.com" class="email" title="Send Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <!-- ⭐ Google Review -->
+  <a href="https://www.google.com/search?sca_esv=fa8e374c3da64ae1&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1qdqYg98OqOV4fzVpPjpByuTyYP3qcx0l2W4yr39dQ9QHjWkKvkX4Yv8l1jeVR3AsRlWy5OqIhnzOA0ANSfB5XvzPj4&q=G-TEC+SHORANUR+Reviews&sa=X&ved=2ahUKEwjp96Pg6JiPAxVwSGwGHYWwEIYQ0bkNegQIJxAE&biw=1228&bih=557&dpr=1.1" 
+     class="review" title="Write a Review" >
+    <i class="fas fa-star"></i>
+  </a>
+</div>
+
+
+
+<!-- Home Carousel Section -->
+<div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+  <!-- 🔘 Indicators -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-inner"style="background-image: url('{% static "main/images/Team1.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+    
+
+      <!-- Dark Overlay -->
+      <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity:0.45;"></div>
+
+      <div class="carousel-caption text-start animate-caption" style="z-index:2; font-family:'Times New Roman', Times, serif;">
+        <h1 class="fw-bold display-4 text-white mb-3">Welcome to <span class="text-warning">G TEC Shoranur</span></h1>
+        <p class="lead text-light mb-4">Your future in IT starts here. Learn, grow, and succeed.</p>
+        <a href="#courses" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill me-2 shadow">
+          🚀 Explore Courses
+        </a>
+        <a href="tel:+919846344178" class="btn btn-outline-light px-4 py-2 rounded-pill shadow">
+          📞 Contact Us
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item" style="background-image: url('{% static "main/images/IMG_3324.JPG" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;">
+
+      <!-- Dark Overlay -->
+      <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity:0.45;"></div>
+
+      <div class="carousel-caption text-start animate-caption" style="z-index:2; font-family:'Times New Roman', Times, serif;">
+        <h1 class="fw-bold display-4 text-white mb-3">Build Your <span class="text-warning">Skills</span></h1>
+        <p class="lead text-light mb-4">Hands-on training with expert instructors.</p>
+        <a href="#" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill me-2 shadow">
+          ✨ Get Started
+        </a>
+        <a href="mailto:shoranur.pkd@gteceducation.com" class="btn btn-outline-light px-4 py-2 rounded-pill shadow">
+          ✉️ Email Us
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ◀️ Prev / Next Arrows -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Courses & Programs Section -->
+<section id="courses" class="py-5" data-aos="fade-up" style="background-color:#0a1930;" >
+  <div class="container">
+    <h2 class="text-center mb-5 text-white">Course Categories</h2>
+    <div class="underline mx-auto mb-5"
+         style="width:90px; height:4px; border-radius:10px; background:linear-gradient(90deg,#ffcc00,#ff6600);">
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      {% for category in categories %}
+        <div class="col-md-4 col-sm-6">
+          <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+            {% if category.image %}
+              <img src="{{ category.image.url }}" class="card-img-top" style="height:200px; object-fit:cover;" alt="{{ category.name }}">
+            {% else %}
+              <img src="{% static 'images/default-category.jpg' %}" class="card-img-top" style="height:200px; object-fit:cover;" alt="Default">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ category.name }}</h5>
+              <p class="card-text">{{ category.description|truncatewords:20 }}</p>
+              <!-- You can link to a category-specific course list here -->
+              <a href="{% url 'category_detail' category.pk %}" class="btn btn-outline-warning btn-lg">View Courses</a>
+
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12 text-center">
+          <p class="text-muted">No categories found.</p>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- After a section -->
+<div class="custom-shape-divider-bottom-1689">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M1200 0L0 0 598.97 114.72 1200 0z" fill="#f8f9fa"></path>
+  </svg>
+</div>
+
+
+<!-- Management Section -->
+ <section id="management" class="py-5"data-aos="fade-up" style="background-color:#0a1930;">
+    <div class="container"> 
+    <h2 class="text-center mb-5 text-white"> Our Management Team</h2>
+    <div class="underline mx-auto mb-5"
+         style="width:90px; height:4px; border-radius:10px; background:linear-gradient(90deg,#ffcc00,#ff6600);">
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <!-- Member 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <img src="{% static 'main/images/ravisir.jpg'%}" class="card-img-top rounded-circle mx-auto mt-4" loading="lazy" style="width:140px; height:140px;" alt="Managing Director">
+          <div class="card-body">
+            <h5 class="card-title">Mr.Ravi Kumar</h5>
+            <p class="text-muted text-white mb-1">Center Director</p>
+            <p class="card-text">Visionary leader with 20+ years in education and technology management.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <img src="{% static 'main/images/faseela.jpg'%}" class="card-img-top rounded-circle mx-auto mt-4" style="width:140px; height:140px;" alt="Operations Head">
+          <div class="card-body">
+            <h5 class="card-title">Ms.Faseela</h5>
+            <p class="text-muted mb-1 text-white">Centre Manager</p>
+            <p class="card-text">Oversees daily operations ensuring smooth functioning across all departments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <img src="{% static 'main/images/greethu.jpg'%}" class="card-img-top rounded-circle mx-auto mt-4" style="width:140px; height:140px;" alt="Finance Manager">
+          <div class="card-body">
+            <h5 class="card-title">Ms. Greethu</h5>
+            <p class="text-muted text-white mb-1">Student Co-ordinator</p>
+            <p class="card-text">Expert in budgeting and finance with 1+ years experience in education sector.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section> 
+
+
+<!-- Our Trainers / Faculty Section -->
+<section id="team" class="py-5" style="background-color:#0a1930; min-height:90vh;" data-aos="fade-up">
+  <div class="container">
+
+    <!-- Heading on top -->
+    <div class="text-center mb-5">
+      <h2 class="text-white fw-bold"> Our Team</h2>
+      <div class="underline mx-auto mt-2"
+           style="width:120px; height:5px; border-radius:10px; background:linear-gradient(90deg,#ffcc00,#ff6600);">
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row align-items-center" style="min-height:60vh;">
+
+      <!-- Caption / Text (Left) -->
+      <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+        <p class="text-light fs-5 lh-lg pe-lg-5">
+          At <span class="fw-bold text-warning">G TEC Shoranur</span>, our team is dedicated to delivering 
+          <span class="text-info">quality education</span> with passion, professionalism, and innovation.  
+          Together, we inspire learners to achieve their dreams and excel in the world of technology.
+        </p>
+      </div>
+
+      <!-- Team Photo (Right) -->
+      <div class="col-lg-6 text-center">
+        <div class="team-photo">
+          <img src="{% static 'main/images/ourteam.jpg' %}" alt="Our Team"
+               class="img-fluid rounded shadow-lg border border-warning"
+               style="max-height:500px; width:auto;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Why Choose Us Section -->
+<section id="why-us" class="py-5" data-aos="fade-up" style="background-color:#0a1930;">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold text-white">
+       Why Choose G TEC Shoranur
+    </h2>
+    <div class="underline mx-auto mb-5"
+         style="width:90px; height:4px; border-radius:10px; background:linear-gradient(90deg,#ffcc00,#ff6600);">
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Benefit Card -->
+      <div class="col-md-4">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <div class="icon-circle bg-success bg-gradient mb-3">
+            <i class="fas fa-chalkboard-teacher fa-2x text-white"></i>
+          </div>
+          <h5 class="fw-bold">Expert Instructors</h5>
+          <p>Certified trainers with real-world experience to guide your learning journey.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <div class="icon-circle bg-primary bg-gradient mb-3">
+            <i class="fas fa-clock fa-2x text-white"></i>
+          </div>
+          <h5 class="fw-bold">Flexible Timings</h5>
+          <p>Weekday and weekend batches with online and offline learning options.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <div class="icon-circle bg-warning bg-gradient mb-3">
+            <i class="fas fa-certificate fa-2x text-white"></i>
+          </div>
+          <h5 class="fw-bold">Recognized Certification</h5>
+          <p>Government-approved certifications that enhance your job prospects.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <div class="icon-circle bg-danger bg-gradient mb-3">
+            <i class="fas fa-headset fa-2x text-white"></i>
+          </div>
+          <h5 class="fw-bold">Career Support</h5>
+          <p>Resume building, mock interviews, and placement assistance included.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <div class="icon-circle bg-info bg-gradient mb-3">
+            <i class="fas fa-laptop-code fa-2x text-white"></i>
+          </div>
+          <h5 class="fw-bold">Practical Learning</h5>
+          <p>Hands-on labs, real projects, and interactive tools for skill mastery.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card shadow-sm h-100 text-center p-3 rounded-3">
+          <div class="icon-circle bg-secondary bg-gradient mb-3">
+            <i class="fas fa-users fa-2x text-white"></i>
+          </div>
+          <h5 class="fw-bold">Student Community</h5>
+          <p>Connect with peers, trainers, and alumni through forums and events.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Affiliations Section -->
+<section id="affiliations" class="py-5" style="background-color:#0a1930;">
+  <div class="container">
+    <!-- Title -->
+    <h2 class="text-center mb-3 text-white fw-bold"> Our Affiliations</h2>
+    <div class="underline mx-auto mb-5"
+         style="width:90px; height:4px; border-radius:10px; background:linear-gradient(90deg,#ffcc00,#ff6600);">
+    </div>
+
+    <!-- Logos -->
+    <div class="row g-4 justify-content-center align-items-center">
+      
+      <!-- Affiliation Item -->
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/NSDC logo.png'%}" 
+               alt="NSDC Logo" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">NSDC Partner</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/IAB.png'%}" 
+               alt="IAB Certified" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">IAB Certification</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/Tallyprime.jpeg'%}" 
+               alt="Tally Prime" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">TALLY Prime</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/SAP.jpeg'%}" 
+               alt="SAP" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">SAP</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/QBLOGO.png'%}" 
+               alt="QuickBooks" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">QuickBooks</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/zoho.png'%}" 
+               alt="Zohobooks" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">Zohobooks</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/meta1.png'%}" 
+               alt="Meta" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">Meta</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/MOS.jpg'%}" 
+               alt="Mos" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">Microsoft</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/cisco.png'%}" 
+               alt="cisco" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">CISCO</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/ADOBE.jpg'%}" 
+               alt="Adobe" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">Adobe certifications</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="affiliation-card p-3">
+          <img src="{% static 'main/images/ABMA.jpg'%}" 
+               alt="Abma" class="img-fluid mx-auto d-block" loading="lazy">
+          <p class="mt-3 fw-semibold text-white small">ABMA</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5" style="background-color:#0a1930;">
+  <div class="container">
+    <h3 class="text-center text-white mb-5">
+      <i class="fas fa-comments me-2"></i> What Our Students Say
+    </h3>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <div class="text-center">
+            <img src="{% static 'images/student1.jpg' %}" 
+                 class="rounded-circle shadow mb-3" width="100" height="100" alt="Student">
+            <p class="fst-italic">“G TEC Shoranur helped me gain confidence in programming. The trainers are very supportive and friendly.”</p>
+            <h6 class="fw-bold text-primary">– Anjali, Full Stack Student</h6>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <div class="text-center">
+            <img src="{% static 'images/student2.jpg' %}" 
+                 class="rounded-circle shadow mb-3" width="100" height="100" alt="Student">
+            <p class="fst-italic">“The placement support was excellent. I got my first IT job within 2 months of completing my course.”</p>
+            <h6 class="fw-bold text-primary">– Rahul, Python Developer</h6>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="carousel-item">
+          <div class="text-center">
+            <img src="{% static 'images/student3.jpg' %}" 
+                 class="rounded-circle shadow mb-3" width="100" height="100" alt="Student">
+            <p class="fst-italic">“The best part is the practical training and real projects. It really prepared me for the industry.”</p>
+            <h6 class="fw-bold text-primary">– Neha, Data Science Student</h6>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Director's Message Section -->
+<!-- Wave Divider (Top) -->
+<div class="position-relative">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-100 text-secondary">
+    <path fill="currentColor" d="M0,64L60,58.7C120,53,240,43,360,58.7C480,75,600,117,720,133.3C840,149,960,139,1080,128C1200,117,1320,107,1380,101.3L1440,96V0H0Z"></path>
+  </svg>
+</div>
+
+<section id="director-message" class="py-5" 
+         style="background-color:#0a1930; font-family: 'Times New Roman', Times, serif; color: #000;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Director Image -->
+      <div class="col-md-4 text-center" data-aos="fade-right">
+        <div class="p-3 bg-white shadow-lg rounded-4 d-inline-block">
+          <img src="{% static 'main/images/RAVISIRGTEC.jpg'%}" 
+               alt="Director Photo" 
+               class="img-fluid rounded-circle shadow-sm border border-3 border-secondary-subtle"
+               style="width: 220px; height: 220px; object-fit: cover;" 
+               loading="lazy">
+          <h5 class="mt-3 fw-bold">Mr. Ravi Kumar</h5>
+          <p class="text-muted small">Centre Director</p>
+        </div>
+      </div>
+
+      <!-- Message Content -->
+      <div class="col-md-8" data-aos="fade-left">
+        <div class="p-4 bg-white shadow-sm rounded-4 position-relative">
+          <span class="position-absolute top-0 start-0 translate-middle p-3 bg-secondary rounded-circle">
+            <i class="bi bi-quote text-white fs-4"></i>
+          </span>
+          <h2 class="mb-4">📣 Director’s Message</h2>
+          <p class="lead fst-italic">
+            “At G TEC Shoranur, we believe education is the foundation of a brighter future. 
+            Our mission is to equip students with practical skills, confidence, and a 
+            forward-thinking mindset. With industry-aligned training, certified faculty, and 
+            a commitment to excellence, we aim to empower every learner to become a future 
+            leader in their field.”
+          </p>
+          <p>
+            We welcome you to join our vibrant learning community and take your first step 
+            towards a successful and fulfilling career. Your growth is our mission.
+          </p>
+          <p class="fw-bold">— Mr. Ravi Kumar, Centre Director</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider (Bottom) -->
+<div class="position-relative">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-100 text-secondary">
+    <path fill="currentColor" d="M0,64L80,80C160,96,320,128,480,128C640,128,800,96,960,80C1120,64,1280,64,1360,64L1440,64V120H0Z"></path>
+  </svg>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+{% endblock %}

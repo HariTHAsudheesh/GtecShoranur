@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 bg-light">
+
+  <div class="container">
+    <h2 class="text-center mb-4 text-black">📘 {{ category.name }} Courses</h2>
+
+    {% if courses %}
+    <div class="row g-4">
+      {% for course in courses %}
+      <div class="col-md-4 col-sm-6">
+        <div class="card h-100 shadow-sm">
+          {% if course.image %}
+            <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}" style="height: 200px; object-fit: cover;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ course.title }}</h5>
+            <p class="card-text">{{ course.description|truncatewords:20 }}</p>
+            <a href="{% url 'course_detail' course.pk %}" class="btn btn-outline-danger btn-sm mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+      <p class="text-center text-muted">No courses available in this category.</p>
+    {% endif %}
+    
+  </div>
+</section>
+{% endblock %}

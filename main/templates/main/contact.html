@@ -1,0 +1,93 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 text-light" 
+  style="background: #0a1930; border-top: 6px solid #ff9900; border-bottom: 6px solid #ff9900;">
+
+  <div class="container mt-5">
+         <h2 class="text-center mb-5 section-title">
+      📞 <span>Contact Us</span>
+    </h2>
+        <div class="underline mx-auto mb-5" style="background: linear-gradient(to right, #ffc107, #0056b3); height: 4px; border-radius: 10px; width: 80px;"></div>
+
+    <div class="row g-4">
+      <!-- Contact Form -->
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="card shadow-lg border-0 rounded-3 bg-dark text-light">
+          <div class="card-body p-4">
+            <h5 class="mb-3 fw-bold" style="color: #ff9900;">Send Us a Message</h5>
+            <form method="post" action="">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control rounded-pill shadow-sm" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control rounded-pill shadow-sm" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control rounded-pill shadow-sm" id="subject" name="subject">
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control shadow-sm rounded" id="message" name="message" rows="4" required></textarea>
+              </div>
+              <button type="button" 
+                      onclick="sendToWhatsApp()" 
+                      class="btn px-4 rounded-pill shadow-sm text-dark fw-bold" 
+                      style="background: #ffcc00;">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="card shadow-lg border-0 rounded-3 h-100 bg-dark text-light">
+          <div class="card-body p-4">
+            <h5 class="mb-3 fw-bold" style="color: #ff9900;">Visit or Reach Us</h5>
+            <p><i class="fas fa-map-marker-alt me-2 text-warning"></i> G TEC, Shoranur, Palakkad, Kerala, India</p>
+            <p><i class="fas fa-envelope me-2 text-success"></i> shoranur.pkd@gteceducation.com</p>
+            <p><i class="fas fa-phone me-2 text-primary"></i> +91 98463 44178</p>
+            <p><i class="fab fa-whatsapp me-2 text-success"></i> +91 80896 37659</p>
+
+            <!-- Map -->
+            <div class="mt-4 rounded-3 overflow-hidden shadow-lg border border-warning">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.63356788677!2d76.2667376750417!3d10.762698089385246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7c4aa9e62da03%3A0x2a167ecd021d49e2!2sG-TEC%20SHORANUR!5e0!3m2!1sen!2sin!4v1756204392314!5m2!1sen!2sin" 
+                  style="border:0;" 
+                  allowfullscreen 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function sendToWhatsApp() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    let phoneNumber = "918089637659";  // ✅ Your WhatsApp number (no + sign, with country code)
+    let text = `Hello, I am ${name} (%20${email}%20).%0ASubject: ${subject}%0AMessage: ${message}`;
+
+    let url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${text}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+{% endblock %}

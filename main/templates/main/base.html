@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>G TEC Shoranur</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<style>
+    body {
+      background-color: grey;
+      font-family: 'Times New Roman', serif;
+      color: #000000;
+    }
+
+    /* Navbar */
+    .navbar {
+  background-color:black !important;  
+  background: transparent !important;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Brand (Logo Text) */
+.navbar-nav .nav-link {
+  margin: 0 30px;   /* space between items */
+  font-size: 30px;  /* adjust size */
+  font-weight: 600; /* make text neat */
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 23px;   /* Brand size */
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  margin-right: 100px;
+}
+.navbar-brand:hover {
+  color: #29b6f6 !important; /* Sky Blue */
+}
+
+/* Nav items */
+.nav-link {
+  font-weight: 500;
+  font-size: 18px;   /* Adjust size for menu items */
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #29b6f6 !important;
+}
+.feature-card {
+  background: linear-gradient(145deg, #0a1930, #112a45);
+  color: #ffffff;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 18px rgba(255, 193, 7, 0.6);
+  border: 1px solid #ffc107;
+}
+
+    /* Contact Icons */
+    .contact-icons {
+      position: fixed;
+      top: 50%;
+      right: 15px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: translateY(-50%);
+    }
+    .contact-icons a {
+      background: #29b6f6; /* Sky Blue */
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+      text-align: center;
+    }
+    .contact-icons a:hover {
+      background: #002147; /* Darker blue on hover */
+    }
+
+    /* Scrolling Banner */
+    .scrolling-text-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: 600;
+      background: #29b6f6; /* Sky Blue */
+      font-size: 20px;
+    }
+    .scrolling-text {
+      animation: scroll-left 20s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Footer */
+    footer {
+      background-color: #002147 !important;
+      color: #ffffff;
+      font-size: 18px;
+    }
+    footer h5, footer h6 {
+      color: #29b6f6; /* Highlight titles */
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #29b6f6 !important;
+    }
+   
+  /* Full screen background */
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* Light background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  /* Spinner style */
+  .loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #0d223d; /* Your theme color */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+</style>
+<body>
+<div id="preloader">
+    <div class="loader"></div>
+  </div>
+<!-- Fixed Contact Icons -->
+<div class="contact-icons">
+  <a href="tel:+919846344178" class="call" title="Call"><i class="fas fa-phone"></i></a>
+  <a href="https://api.whatsapp.com/send?phone=918089637659" class="whatsapp" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="mailto:shoranur.pkd@gteceducation.com" class="email" title="Email"><i class="fas fa-envelope"></i></a>
+  <a href="https://www.google.com/search?sca_esv=fa8e374c3da64ae1&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1qdqYg98OqOV4fzVpPjpByuTyYP3qcx0l2W4yr39dQ9QHjWkKvkX4Yv8l1jeVR3AsRlWy5OqIhnzOA0ANSfB5XvzPj4&q=G-TEC+SHORANUR+Reviews&sa=X&ved=2ahUKEwjp96Pg6JiPAxVwSGwGHYWwEIYQ0bkNegQIJxAE&biw=1228&bih=557&dpr=1.1" 
+     class="review" title="Write a Review" >
+    <i class="fas fa-star"></i></a>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: transparent; z-index: 1030;">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+       <img src="{% static 'main/images/GTECLOGO.jpeg' %}" style="
+         height: 60px;
+         width: auto; 
+         background: transparent !important;
+         object-fit: contain;
+         margin-right: 8px;  
+       "alt="G-TEC Logo" 
+       class="me-2">
+      G TEC SHORANUR</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'category_list' %}"> Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials"> Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}"> About</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}"> Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Scrolling Banner
+<div class="scrolling-text-wrapper py-1 fixed-top" style="top: 56px; background:#ffc107; z-index:1029;">
+  <div class="scrolling-text text-center fw-bold text-dark pt-2">
+    🚀 Welcome to G TEC SHORANUR! Admission Open. Get 25% OFF on selected courses! 🚀
+  </div>
+</div> -->
+
+
+<!-- Page Content -->
+<main>
+  {% block content %}
+  {% endblock %}
+</main>
+
+<!-- Footer -->
+<footer class="pt-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <!-- About -->
+      <div class="col-md-3">
+        <h5>G TEC Shoranur</h5>
+        <p>High-quality education and training for your future.</p>
+      </div>
+      <!-- Quick Links -->
+      <div class="col-md-3">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'course_list' %}">Courses</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Contact Info -->
+      <div class="col-md-3">
+        <h6>Contact</h6>
+        <p><i class="fas fa-home me-2"></i> Shoranur, Kerala</p>
+        <p><i class="fas fa-envelope me-2"></i> shoranur.pkd@gteceducation.com</p>
+        <p><i class="fas fa-phone me-2"></i>+919846344178</p>
+      </div>
+      <!-- Social Links -->
+      <div class="col-md-3">
+        <h6>Follow Us</h6>
+        <a href="#" class="text-white me-2 fs-5"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-white me-2 fs-5"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-2 fs-5"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <p class="small mb-0">© 2025 gtecshoranur.com. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script>
+  // Hide preloader when site is loaded
+  window.addEventListener("load", function () {
+    document.getElementById("preloader").style.display = "none";
+  });
+  
+  window.addEventListener("scroll", function() {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.style.background = "#002244";  // dark blue
+      navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.3)";
+    } else {
+      navbar.style.background = "transparent";
+      navbar.style.boxShadow = "none";
+    }
+  });
+</script>
+
+</body>
+
+</html>
