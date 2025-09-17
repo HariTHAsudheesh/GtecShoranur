@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView,ListView,DetailView
 from .models import Course, Trainer,Category
 
+
+
 # Home Page
 class HomeView(TemplateView):
     template_name = 'main/home.html'

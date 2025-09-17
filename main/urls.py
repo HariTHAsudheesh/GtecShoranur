@@ -7,9 +7,11 @@ from .views import (
     TrainerListView,
     AboutView,
     ContactView,
+    
 )
 
 urlpatterns = [
+    
     path('', HomeView.as_view(), name='home'),
     path('categories/', CategoryListView.as_view(), name='category_list'),
     path('categories/<int:pk>/', CoursesByCategoryView.as_view(), name='courses_by_category'),
