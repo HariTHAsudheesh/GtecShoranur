@@ -30,11 +30,12 @@ env_hosts = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
 
 # Add your static hosts
 ALLOWED_HOSTS = env_hosts + [
-    "gtecshoranur-1.onrender.com",
-    "gtecshoranur.com",
-    "www.gtecshoranur.com",
-    "localhost",
-    "127.0.0.1"
+    'gtecshoranur.onrender.com',
+    'gtecshoranur-1.onrender.com',
+    'www.gtecshoranur.com',
+    'gtecshoranur.com',
+    'localhost',
+    '127.0.0.1'
 ]
 
 
