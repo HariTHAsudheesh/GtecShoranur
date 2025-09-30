@@ -39,12 +39,13 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 ALLOWED_HOSTS.extend([
     'gtecsrr.onrender.com',  # Your primary Render domain
-    'gtecsnoranur.com',
-    'www.gtecsnoranur.com',
+    'gtecshoranur.com',
+    'www.gtecshoranur.com',
     'localhost',
     '127.0.0.1',
     *ENV_HOSTS  # Add hosts from the environment variable
 ])
+ALLOWED_HOSTS = list(set([host for host in ALLOWED_HOSTS if host])) 
 
 
 
