@@ -23,24 +23,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^x$mr=f+i#gse)7*x1yzuzrrr&*8+8#dmj0iwgoyi0dz!1tnm#'
+SECRET_KEY = os.getenv('django-insecure-^x$mr=f+i#gse)7*x1yzuzrrr&*8+8#dmj0iwgoyi0dz!1tnm#')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-env_hosts = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+ENV_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
+
+ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
-
-
-ALLOWED_HOSTS = [
-    "gtecsrr.onrender.com",
-    "gtecshoranur.com",
-    "www.gtecshoranur.com",
-    "localhost",
-    "127.0.0.1",
-]
-
+ALLOWED_HOSTS.extend([
+    'gtecsrr.onrender.com',  # Your primary Render domain
+    'gtecsnoranur.com',
+    'www.gtecsnoranur.com',
+    'localhost',
+    '127.0.0.1',
+    *ENV_HOSTS  # Add hosts from the environment variable
+])
 
 
 
