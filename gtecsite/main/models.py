@@ -33,4 +33,4 @@ class Trainer(models.Model):
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
     bio = models.TextField()
-    photo = models.ImageField(upload_to='trainers/')
+    photo = CloudinaryField(folder='trainers/')
