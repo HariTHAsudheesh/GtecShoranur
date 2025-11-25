@@ -13,3 +13,4 @@ db.sqlite3
 # Ignore IDE files
 .vscode/
 .idea/
+-e "media/\nstaticfiles/" 
