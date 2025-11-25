@@ -24,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET")
+SECRET_KEY = "$^^cmylw6h#u%@nvf7m8kuab)a^cw26@duygkrg%e7warx9wod"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 
 ENV_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
 
@@ -159,10 +160,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('CLOUD_API_KEY'),
-    'API_SECRET': os.environ.get('CLOUD_API_SECRET')
+    'CLOUD_NAME': 'dbnrzcka9',
+    'API_KEY': '427445141223367',
+    'API_SECRET': '_mxudBrJqryvPdB46sd96sDA4os'
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config(
+    cloud_name="dbnrzcka9",
+    api_key="427445141223367",
+    api_secret="_mxudBrJqryvPdB46sd96sDA4os"
+)
+
 
