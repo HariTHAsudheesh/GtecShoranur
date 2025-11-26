@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY="u^3!n7$#df0#f!p31z@5c&w3j@_ej7=6&4$*rj8o%f^to!k8y"
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY","u^3!n7$#df0#f!p31z@5c&w3j@_ej7=6&4$*rj8o%f^to!k8y")
 
 
 
